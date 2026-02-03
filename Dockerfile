@@ -49,6 +49,10 @@ COPY --from=builder /evolution/Docker ./Docker
 COPY --from=builder /evolution/runWithProvider.js ./runWithProvider.js
 COPY --from=builder /evolution/tsup.config.ts ./tsup.config.ts
 
+# Agregar usuario no privilegiado para seguridad
+RUN chown -R node:node /evolution
+USER node
+
 ENV DOCKER_ENV=true
 
 EXPOSE 8080
