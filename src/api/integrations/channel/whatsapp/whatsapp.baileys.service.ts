@@ -1582,10 +1582,11 @@ export class BaileysStartupService extends ChannelStartupService {
     const jid = createJid(number);
 
     try {
-      const call = await this.client.offerCall(jid, isVideo);
-      setTimeout(() => this.client.terminateCall(call.id, call.to), callDuration * 1000);
+      // const call = await this.client.offerCall(jid, isVideo);
+      // setTimeout(() => this.client.terminateCall(call.id, call.to), callDuration * 1000);
 
-      return call;
+      // return call;
+            return { message: 'Call functionality disabled - deprecated methods' };
     } catch (error) {
       return error;
     }
